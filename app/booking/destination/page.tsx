@@ -36,7 +36,6 @@ export default function DestinationPage() {
 
   const handleNext = () => {
     const baseError = validateDates(dates.departureDate, dates.returnDate);
-    console.log(baseError);
     if (baseError) {
       setDateError(baseError);
       return;
