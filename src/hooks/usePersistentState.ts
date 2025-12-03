@@ -18,17 +18,19 @@ export function usePersistentState<T>(
   const { deserialize = JSON.parse, serialize = JSON.stringify } =
     options || {};
 
-  const [state, setState] = useState<T>(() => {
-    if (typeof window === "undefined") return initialValue;
+  const [state, setState] = useState<T>(initialValue);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
     try {
       const raw = window.localStorage.getItem(key);
-      if (!raw) return initialValue;
-      return deserialize(raw) as T;
-    } catch {
-      return initialValue;
-    }
-  });
+      if (!raw) return;
+
+      const parsed = deserialize(raw) as T;
+      setState(parsed);
+    } catch {}
+  }, [key]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;

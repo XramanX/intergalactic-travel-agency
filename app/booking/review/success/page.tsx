@@ -1,14 +1,17 @@
-"use client";
-
-import { useSearchParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button/Button";
 import { FaCheckCircle } from "react-icons/fa";
 import styles from "./page.module.scss";
 
-export default function SuccessPage() {
-  const params = useSearchParams();
-  const bookingId = params.get("bookingId");
-  const router = useRouter();
+interface SuccessPageProps {
+  searchParams: Promise<{
+    bookingId?: string;
+  }>;
+}
+
+export default async function SuccessPage({ searchParams }: SuccessPageProps) {
+  const params = await searchParams;
+  const bookingId = params.bookingId ?? "N/A";
 
   return (
     <div className={styles.container}>
@@ -20,9 +23,9 @@ export default function SuccessPage() {
         Your booking ID: <strong>{bookingId}</strong>
       </p>
 
-      <Button fullWidth onClick={() => router.push("/booking/destination")}>
-        Make another booking
-      </Button>
+      <Link href="/booking/destination">
+        <Button fullWidth>Make another booking</Button>
+      </Link>
     </div>
   );
 }
