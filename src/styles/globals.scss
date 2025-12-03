@@ -1,0 +1,21 @@
+@use "./variables"as *;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: $color-bg;
+    color: $color-text;
+    // cursor: url("/rocket-cursor.png") 16 16, auto; // was thinking to overkill hehe
+}
+
+body {
+    min-height: 100vh;
+}

@@ -1,0 +1,182 @@
+@use "@/styles/variables"as *;
+
+.card {
+    border-radius: 22px;
+    padding: 1.4rem 1.6rem;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(55, 65, 81, 0.9);
+    box-shadow: $shadow-soft;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.headerMain {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.headerIcon {
+    font-size: 1.4rem;
+    color: $color-accent;
+}
+
+.header h3 {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.header p {
+    margin: 0.15rem 0 0;
+    font-size: 0.85rem;
+    color: $color-muted;
+}
+
+.badge {
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.55);
+    background: rgba(15, 23, 42, 0.9);
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+
+    span {
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: $color-muted;
+    }
+
+    strong {
+        font-size: 0.85rem;
+    }
+}
+
+.body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 1.4rem;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.blockLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: $color-muted;
+
+    svg {
+        font-size: 0.9rem;
+        color: $color-accent;
+    }
+}
+
+.blockValue {
+    font-size: 0.95rem;
+}
+
+.blockValueMuted {
+    font-size: 0.9rem;
+    color: $color-muted;
+}
+
+.destName {
+    font-weight: 600;
+}
+
+.destMeta {
+    display: block;
+    font-size: 0.85rem;
+    color: $color-muted;
+    margin-top: 0.1rem;
+}
+
+.arrow {
+    opacity: 0.7;
+    margin-inline: 0.25rem;
+}
+
+.travelerList {
+    list-style: none;
+    padding: 0;
+    margin: 0.2rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.travelerItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.travelerAvatar {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 999px;
+    background: $color-accent-soft;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: $color-accent;
+}
+
+.travelerInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.travelerName {
+    font-size: 0.9rem;
+}
+
+.travelerMeta {
+    font-size: 0.8rem;
+    color: $color-muted;
+}
+
+/* light theme tweaks */
+body[data-theme="light"] .card {
+    background: $color-surface;
+    border-color: rgba(148, 163, 184, 0.7);
+}
+
+body[data-theme="light"] .badge {
+    background: $color-surface;
+}
+
+@media (max-width: 720px) {
+    .body {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

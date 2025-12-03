@@ -1,0 +1,74 @@
+@use '@/styles/variables'as *;
+
+.card {
+    width: 100%;
+    text-align: left;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    padding: 1.1rem 1.3rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background: rgba(31, 41, 55, 0.85);
+    color: $color-text;
+    outline: none;
+    transition:
+        background 0.15s ease-out,
+        border-color 0.15s ease-out,
+        transform 0.12s ease-out,
+        box-shadow 0.15s ease-out;
+}
+
+.card:hover {
+    background: rgba(31, 41, 55, 1);
+    border-color: $color-accent;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+}
+
+.card:focus-visible {
+    box-shadow: 0 0 0 1px $color-accent;
+}
+
+.card--selected {
+    border-color: $color-accent;
+    background: $color-accent-soft;
+    transform: translateY(-2px) scale(1.01);
+    color: $color-text;
+}
+
+.name {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.info {
+    font-size: 0.85rem;
+    color: $color-muted;
+    display: flex;
+    flex-direction: column;
+}
+
+/* light theme tweaks */
+
+body[data-theme='light'] .card {
+    background: #f3f4f6;
+    border-color: rgba(148, 163, 184, 0.8);
+    color: $color-text;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+body[data-theme='light'] .card:hover {
+    background: #e5ecff;
+    border-color: $color-accent;
+}
+
+body[data-theme='light'] .card--selected {
+    background: #e0ebff;
+    border-color: $color-accent;
+}
+
+body[data-theme='light'] .info {
+    color: $color-muted;
+}

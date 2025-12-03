@@ -1,0 +1,170 @@
+@use '@/styles/variables'as *;
+
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 999px;
+    background: radial-gradient(circle at top left,
+            rgba(15, 23, 42, 0.9),
+            $color-surface);
+    border: 1px solid rgba(31, 41, 55, 0.9);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.stepper::-webkit-scrollbar {
+    display: none;
+}
+
+.step {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.step__link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    transition:
+        background 0.15s ease-out,
+        color 0.15s ease-out,
+        transform 0.1s ease-out,
+        box-shadow 0.15s ease-out;
+    color: $color-muted;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.step__index {
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    font-size: 0.8rem;
+    background: rgba(15, 23, 42, 0.7);
+}
+
+.step__label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.step:not(.step--disabled) .step__link:hover {
+    background: rgba(15, 23, 42, 0.95);
+    color: $color-text;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+}
+
+.step--active .step__link {
+    background: $color-accent-soft;
+    color: $color-accent;
+    transform: translateY(-1px);
+}
+
+.step--active .step__index {
+    border-color: transparent;
+    background: $color-accent;
+    color: $color-bg;
+}
+
+.step--completed .step__link {
+    color: $color-text;
+}
+
+.step--completed .step__index {
+    border-color: $color-accent;
+}
+
+.step--disabled .step__link,
+.step__link--disabled {
+    opacity: 0.45;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* responsive */
+
+@media (max-width: 640px) {
+    .stepper {
+        padding: 0.5rem 0.6rem;
+        gap: 0.5rem;
+    }
+
+    .step {
+        flex: 0 0 auto;
+        min-width: 7.5rem;
+    }
+
+    .step__link {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .step__index {
+        width: 1.3rem;
+        height: 1.3rem;
+        font-size: 0.75rem;
+    }
+
+    .step__label {
+        max-width: 5.5rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .step__link {
+        padding-inline: 0.9rem;
+        font-size: 0.85rem;
+    }
+
+    .step__label {
+        max-width: none;
+    }
+}
+
+/* light-theme overrides */
+
+body[data-theme='light'] .stepper {
+    background: linear-gradient(135deg, #f9fafb, $color-surface);
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    box-shadow: $shadow-soft;
+}
+
+body[data-theme='light'] .step__index {
+    background: #e5e7eb;
+    border-color: rgba(148, 163, 184, 0.9);
+}
+
+body[data-theme='light'] .step__link {
+    color: $color-muted;
+}
+
+body[data-theme='light'] .step:not(.step--disabled) .step__link:hover {
+    background: rgba(15, 23, 42, 0.04);
+    color: $color-text;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
+}
+
+body[data-theme='light'] .step--active .step__link {
+    background: $color-accent-soft;
+    color: $color-accent;
+}
+
+body[data-theme='light'] .step--active .step__index {
+    background: $color-accent;
+    color: #ffffff;
+    border-color: transparent;
+}
+
+body[data-theme='light'] .step--completed .step__link {
+    color: $color-text;
+}

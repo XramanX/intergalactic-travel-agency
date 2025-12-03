@@ -1,0 +1,124 @@
+@use '@/styles/variables'as *;
+
+.wrapper {
+    position: relative;
+    z-index: 10;
+}
+
+.trigger {
+    border: 1px solid rgba(31, 41, 55, 0.85);
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 999px;
+    padding: 0.3rem 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #fff;
+    transition:
+        background 0.15s ease-out,
+        border-color 0.15s ease-out,
+        transform 0.08s ease-out,
+        box-shadow 0.15s ease-out;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.trigger:hover {
+    background: rgba(15, 23, 42, 1);
+    border-color: rgba(55, 65, 81, 1);
+    transform: translateY(-1px);
+}
+
+.triggerIcon {
+    font-size: 0.9rem;
+    display: inline-flex;
+}
+
+.triggerLabel {
+    display: none;
+}
+
+.chevron {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    transition: transform 0.12s ease-out, opacity 0.12s ease-out;
+}
+
+.chevron.open {
+    transform: rotate(180deg);
+    opacity: 1;
+}
+
+.menu {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    min-width: 160px;
+    margin-top: 0.3rem;
+    border-radius: 16px;
+    background: $color-surface;
+    border: 1px solid rgba(55, 65, 81, 0.9);
+    box-shadow: $shadow-soft;
+    padding: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    opacity: 0;
+    transform: translateY(-4px) scale(0.96);
+    transform-origin: top right;
+    pointer-events: none;
+    transition:
+        opacity 0.14s ease-out,
+        transform 0.14s ease-out;
+}
+
+.menuOpen {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.item {
+    border: none;
+    background: transparent;
+    border-radius: 12px;
+    padding: 0.4rem 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8rem;
+    color: $color-muted;
+    cursor: pointer;
+    transition:
+        background 0.12s ease-out,
+        color 0.12s ease-out,
+        transform 0.08s ease-out;
+}
+
+.itemIcon {
+    font-size: 0.9rem;
+    display: inline-flex;
+}
+
+.itemLabel {
+    flex: 1;
+    text-align: left;
+}
+
+.item:hover {
+    background: $color-accent-soft;
+    color: $color-accent;
+    transform: translateY(-1px);
+}
+
+.active {
+    background: $color-accent-soft;
+    color: $color-accent;
+}
+
+@media (min-width: 640px) {
+    .triggerLabel {
+        display: inline;
+    }
+}

@@ -1,0 +1,128 @@
+@use '@/styles/variables'as *;
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.datesPanel {
+    padding: 1.4rem 1.6rem;
+    border-radius: 20px;
+    background: radial-gradient(circle at top left, #111827, $color-surface);
+    border: 1px solid rgba(55, 65, 81, 0.9);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+.panelHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.panelHeader h2 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.icon {
+    font-size: 1rem;
+    color: $color-accent;
+}
+
+.dateGrid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.destinationsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.sectionHeader h3 {
+    margin: 0;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $color-muted;
+}
+
+.destinationsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.skeletonGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.skeletonGrid div {
+    height: 120px;
+    border-radius: 18px;
+    background: linear-gradient(90deg, #1f2937, #374151, #1f2937);
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite;
+}
+
+.footer {
+    margin-top: 0.4rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer button {
+    min-width: 220px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .datesPanel {
+        padding: 1.2rem 1.1rem;
+    }
+
+    .footer {
+        justify-content: stretch;
+    }
+
+    .footer button {
+        width: 100%;
+    }
+}
+
+/* light theme tuning */
+
+body[data-theme='light'] .datesPanel {
+    background: $color-surface;
+    border: 1px solid rgba(148, 163, 184, 0.75);
+    box-shadow: $shadow-soft;
+}
+
+body[data-theme='light'] .skeletonGrid div {
+    background: linear-gradient(90deg, #e5e7eb, #d1d5db, #e5e7eb);
+}
+
+body[data-theme='light'] .sectionHeader h3 {
+    color: $color-muted;
+}

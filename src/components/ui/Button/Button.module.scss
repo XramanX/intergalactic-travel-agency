@@ -1,0 +1,104 @@
+@use '@/styles/variables'as *;
+
+.button {
+    border: none;
+    border-radius: $radius-lg;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    gap: 0.45rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: $shadow-soft;
+    transition:
+        background 0.15s ease-out,
+        transform 0.1s ease-out,
+        box-shadow 0.15s ease-out,
+        opacity 0.1s ease-out;
+
+    &:active {
+        transform: translateY(1px) scale(0.99);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+        box-shadow: none;
+    }
+}
+
+.button--primary {
+    background: linear-gradient(135deg, $color-accent, #22c55e);
+    color: #022c22;
+}
+
+.button--secondary {
+    background: rgba(148, 163, 184, 0.12);
+    color: $color-text;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.button--ghost {
+    background: transparent;
+    color: $color-muted;
+    border: 1px solid rgba(55, 65, 81, 0.8);
+}
+
+.button--md {
+    font-size: 0.95rem;
+    min-height: 2.5rem;
+}
+
+.button--sm {
+    font-size: 0.85rem;
+    min-height: 2.2rem;
+    padding-inline: 0.9rem;
+}
+
+.button--fullWidth {
+    width: 100%;
+}
+
+.content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+// .button__content {
+//     display: inline-flex;
+//     align-items: flex;
+//     justify-content: center;
+//     gap: 0.45rem;
+// }
+
+.button--loading {
+    .button__content {
+        opacity: 0.85;
+    }
+}
+
+.button svg {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+}
+
+.spinner {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 999px;
+    border: 2px solid rgba(15, 23, 42, 0.15);
+    border-top-color: #022c22;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,68 @@
+@use '@/styles/variables'as *;
+
+.shell {
+    min-height: 100vh;
+    padding: 2.5rem 1.2rem;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.shell__gradient {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at top, rgba(59, 130, 246, 0.25), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.18), transparent 55%);
+    opacity: 0.75;
+}
+
+.shell__content {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.shell__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 1.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-text;
+}
+
+.subtitle {
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    color: $color-muted;
+}
+
+.shell__cardArea {
+    flex: 1;
+}
+
+.wizard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.wizard__top {
+    margin-bottom: 0.4rem;
+}
+
+.wizard__body {
+    margin-top: 0.4rem;
+}

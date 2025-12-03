@@ -1,0 +1,94 @@
+@use '@/styles/variables'as *;
+
+.row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 20px;
+    border: 1px solid rgba(55, 65, 81, 0.9);
+    transition: 0.15s ease-out;
+
+    &:hover {
+        border-color: $color-accent;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+    }
+}
+
+.avatarContainer {
+    position: relative;
+    width: 48px;
+    height: 48px;
+}
+
+.avatarIcon {
+    font-size: 2.2rem;
+    color: $color-accent;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+.indexBadge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 1.3rem;
+    min-height: 1.3rem;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0.7rem;
+    font-weight: bold;
+    background: $color-accent;
+    color: #011c18;
+    border-radius: 50%;
+    border: 2px solid rgba(15, 23, 42, 1);
+}
+
+.fields {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+
+.actions {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+}
+
+
+
+@media (max-width: 720px) {
+    .row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .avatarContainer {
+        margin-bottom: 0.3rem;
+    }
+
+    .fields {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .removeBtn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+body[data-theme='light'] .row {
+    background: #ffffff;
+    border-color: rgba(148, 163, 184, 0.5);
+}
+
+body[data-theme='light'] .indexBadge {
+    border-color: #ffffff;
+}

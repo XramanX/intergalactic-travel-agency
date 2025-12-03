@@ -1,0 +1,93 @@
+@use '@/styles/variables'as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.titleGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.titleGroup h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.icon {
+    font-size: 1rem;
+    color: $color-accent;
+}
+
+.count {
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $color-muted;
+}
+
+.listCard {
+    // border-radius: 18px;
+    padding: 1rem 1.1rem;
+    // background: rgba(15, 23, 42, 0.8);
+    // border: 1px solid rgba(55, 65, 81, 0.9);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.error {
+    font-size: 0.8rem;
+    color: #fecaca;
+}
+
+.controls {
+    margin-top: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.rightControls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* light theme tweaks */
+
+body[data-theme='light'] .listCard {
+    background: $color-surface;
+    border-color: rgba(148, 163, 184, 0.7);
+    box-shadow: $shadow-soft;
+}
+
+@media (max-width: 640px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .rightControls {
+        width: 100%;
+        justify-content: stretch;
+    }
+
+    .rightControls>button {
+        flex: 1 1 0;
+    }
+}

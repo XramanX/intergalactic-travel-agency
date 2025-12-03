@@ -1,0 +1,38 @@
+@use '@/styles/variables'as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.successIcon {
+    font-size: 3rem;
+    color: $color-accent;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: $color-text;
+}
+
+.message {
+    font-size: 1rem;
+    color: $color-muted;
+
+    strong {
+        color: $color-text;
+    }
+}
+
+body[data-theme='light'] .message {
+    color: #475569;
+}
+
+body[data-theme='light'] .title {
+    color: #0f172a;
+}
