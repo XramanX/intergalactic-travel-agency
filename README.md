@@ -250,17 +250,13 @@ In a production app with multiple flows (auth, payments, seat selection), Redux 
 ```typescript
 // useBooking hook provides:
 const {
-  destination,
+  bookingState,
   setDestination,
-  departureDate,
-  setDepartureDate,
-  returnDate,
-  setReturnDate,
-  travelers,
+  setDates,
+  updateTraveler,
   addTraveler,
   removeTraveler,
-  updateTraveler,
-  clearBooking,
+  resetBooking,
 } = useBooking();
 ```
 
