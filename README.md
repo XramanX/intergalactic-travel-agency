@@ -110,6 +110,10 @@ npm run start
 
 ---
 
+## Check Live on vercel
+
+[Link to Vercel](https://intergalactic-travel-agency.vercel.app/)
+
 ## 🎯 Booking Flow
 
 ### Step 1: Destination Selection
