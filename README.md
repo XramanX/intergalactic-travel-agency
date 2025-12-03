@@ -23,10 +23,6 @@ A production-ready multi-step booking wizard built with **Next.js 14 (App Router
 
 ---
 
-## Check Live on vercel
-
-[Link](https://intergalactic-travel-agency.vercel.app/booking/destination)
-
 ## 🌟 Overview
 
 The Intergalactic Travel Agency booking wizard guides users through a seamless 3-step process to book their next space adventure:
