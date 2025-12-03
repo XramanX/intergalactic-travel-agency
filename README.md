@@ -264,7 +264,7 @@ const {
 
 ## ✅ Validation
 
-All validation is centralized in `features/booking/utils/validation.ts`:
+All validation is centralized in `src/features/booking/utils/validation.ts`:
 
 ### Date Validation
 
@@ -331,7 +331,7 @@ yarn test
 
 **Theme System:**
 
-- Light/Dark themes mode toggle
+- themes mode toggle
 - CSS variables for easy theming
 - Shared design tokens in `variables.scss`
 
