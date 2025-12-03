@@ -6,10 +6,25 @@ import {
 import type { Traveler, Destination } from "@/types/booking";
 
 describe("validateDates", () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date("2025-01-01T00:00:00Z"));
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   it("returns error when dates are missing", () => {
     expect(validateDates(null, null)).toBe("Please select both dates.");
-    expect(validateDates("2025-01-01", null)).toBe("Please select both dates.");
-    expect(validateDates(null, "2025-01-02")).toBe("Please select both dates.");
+    expect(validateDates("2025-01-02", null)).toBe("Please select both dates.");
+    expect(validateDates(null, "2025-01-03")).toBe("Please select both dates.");
+  });
+
+  it("returns error when departure date is in the past", () => {
+    expect(validateDates("2024-12-31", "2025-01-02")).toBe(
+      "Departure date cannot be in the past."
+    );
   });
 
   it("returns error when return date is not after departure", () => {
@@ -22,7 +37,7 @@ describe("validateDates", () => {
   });
 
   it("returns null for valid date range", () => {
-    expect(validateDates("2025-01-01", "2025-01-02")).toBeNull();
+    expect(validateDates("2025-01-02", "2025-01-03")).toBeNull();
   });
 });
 

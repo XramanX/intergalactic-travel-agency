@@ -18,7 +18,7 @@ import { FaCheckCircle } from "react-icons/fa";
 
 export default function ReviewPage() {
   const router = useRouter();
-  const { state, resetBooking } = useBooking();
+  const { state } = useBooking();
   const [dest, setDest] = useState<Destination | null>(null);
   const [loadingSubmit, setLoadingSubmit] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -65,8 +65,8 @@ export default function ReviewPage() {
       );
 
       if (response.success) {
-        resetBooking();
         router.push(`/booking/review/success?bookingId=${response.bookingId}`);
+        // resetBooking();
       }
     } catch (err: unknown) {
       const errorMessage =

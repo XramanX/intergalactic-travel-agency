@@ -36,6 +36,7 @@ export default function DestinationPage() {
 
   const handleNext = () => {
     const baseError = validateDates(dates.departureDate, dates.returnDate);
+    console.log(baseError);
     if (baseError) {
       setDateError(baseError);
       return;
@@ -78,7 +79,9 @@ export default function DestinationPage() {
             type="date"
             label="Departure"
             value={dates.departureDate ?? ""}
+            min={new Date().toISOString().split("T")[0]}
             onChange={(e) => handleChange("departureDate", e.target.value)}
+            // error={dateError || undefined}
           />
           <Input
             type="date"

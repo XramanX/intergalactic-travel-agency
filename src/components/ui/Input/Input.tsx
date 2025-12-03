@@ -19,6 +19,7 @@ export const Input: React.FC<InputProps> = ({
   id,
   type,
   onFocus,
+  onClick,
   ...rest
 }) => {
   const inputId = id ?? rest.name ?? undefined;
@@ -26,12 +27,23 @@ export const Input: React.FC<InputProps> = ({
   const helperId = helperText ? `${inputId}-helper` : undefined;
 
   const handleFocus: React.FocusEventHandler<HTMLInputElement> = (e) => {
-    if (type === "date") {
-      (e.target as HTMLInputElement).showPicker?.();
-    }
-
     if (onFocus) {
       onFocus(e);
+    }
+  };
+
+  const handleClick: React.MouseEventHandler<HTMLInputElement> = (e) => {
+    if (type === "date") {
+      const input = e.target as HTMLInputElement;
+      try {
+        input.showPicker?.();
+      } catch {
+        // ignore NotAllowedError
+      }
+    }
+
+    if (onClick) {
+      onClick(e);
     }
   };
 
@@ -51,6 +63,7 @@ export const Input: React.FC<InputProps> = ({
         aria-invalid={Boolean(error) || undefined}
         aria-describedby={error ? errorId : helperText ? helperId : undefined}
         onFocus={handleFocus}
+        onClick={handleClick}
         {...rest}
       />
       {helperText && !error && (

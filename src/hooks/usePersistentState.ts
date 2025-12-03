@@ -26,10 +26,11 @@ export function usePersistentState<T>(
     try {
       const raw = window.localStorage.getItem(key);
       if (!raw) return;
-
       const parsed = deserialize(raw) as T;
+      // eslint-disable-next-line
       setState(parsed);
     } catch {}
+    // eslint-disable-next-line
   }, [key]);
 
   useEffect(() => {

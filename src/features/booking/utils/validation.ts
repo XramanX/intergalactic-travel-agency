@@ -6,7 +6,16 @@ export function validateDates(
   returnDate: string | null
 ): string | null {
   if (!departureDate || !returnDate) return "Please select both dates.";
-  if (new Date(returnDate) <= new Date(departureDate)) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const departure = new Date(departureDate);
+  const returnD = new Date(returnDate);
+
+  if (departure < today) {
+    return "Departure date cannot be in the past.";
+  }
+
+  if (returnD <= departure) {
     return "Return date must be after departure date.";
   }
   return null;

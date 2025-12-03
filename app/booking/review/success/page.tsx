@@ -1,17 +1,22 @@
+"use client";
+
+import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button/Button";
 import { FaCheckCircle } from "react-icons/fa";
 import styles from "./page.module.scss";
+import { useBooking } from "@/features/booking/hooks/useBooking";
 
-interface SuccessPageProps {
-  searchParams: Promise<{
-    bookingId?: string;
-  }>;
-}
+export default function SuccessPage() {
+  const searchParams = useSearchParams();
+  const bookingId = searchParams.get("bookingId") ?? "N/A";
 
-export default async function SuccessPage({ searchParams }: SuccessPageProps) {
-  const params = await searchParams;
-  const bookingId = params.bookingId ?? "N/A";
+  const { resetBooking } = useBooking();
+
+  useEffect(() => {
+    resetBooking();
+  }, [resetBooking]);
 
   return (
     <div className={styles.container}>
